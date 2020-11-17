@@ -42,7 +42,7 @@ func _process(delta: float) -> void:
 	$"../DeadsLabel".text="Deads: "+String(countDeads)
 	$"../TimeLabel".text="Time: "+String(time)
 	#print(fmod(timer, 5))
-	if(timer>5):
+	if(timer>Global.timePerCycle):
 		timer=0
 		for i in range(maxFood):
 			var posi= Vector2(rng.randf_range(0, 500),rng.randf_range(0, 500))
