@@ -134,10 +134,13 @@ func _physics_process(delta: float) -> void:
 				direction= Vector2(rng.randf_range(0, 500),rng.randf_range(0, 500))
 				
 		collision = move_and_collide((direction-position).normalized()*speed*delta);
-		
-		
-		
-		
+		if  collision:
+			if(not Global.stay):
+				rng.randomize()
+				goalType=null
+				direction= Vector2(rng.randf_range(0, 500),rng.randf_range(0, 500))
+				collision = move_and_collide((direction-position).normalized()*speed*delta);
+
 
 """
 func _on_Area2D_body_entered(body: Node) -> void:
