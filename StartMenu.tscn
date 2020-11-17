@@ -1,0 +1,273 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://StartMenu.gd" type="Script" id=1]
+
+[node name="Control" type="Control"]
+margin_left = -0.140305
+margin_top = 0.140308
+margin_right = 499.86
+margin_bottom = 500.14
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 450.0
+margin_bottom = 450.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FoodLabel" type="Label" parent="VBoxContainer"]
+margin_right = 400.0
+margin_bottom = 14.0
+text = "Food"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 18.0
+margin_right = 400.0
+margin_bottom = 42.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
+margin_top = 5.0
+margin_right = 179.0
+margin_bottom = 19.0
+text = "Time betwen cycles of food "
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 183.0
+margin_right = 257.0
+margin_bottom = 24.0
+max_value = 1000.0
+value = 5.0
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 261.0
+margin_top = 5.0
+margin_right = 314.0
+margin_bottom = 19.0
+text = "seconds"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 46.0
+margin_right = 400.0
+margin_bottom = 70.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_top = 5.0
+margin_right = 161.0
+margin_bottom = 19.0
+text = "Amount of food per cycle"
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/HBoxContainer"]
+margin_left = 165.0
+margin_right = 239.0
+margin_bottom = 24.0
+max_value = 1000.0
+value = 20.0
+rounded = true
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 74.0
+margin_right = 400.0
+margin_bottom = 98.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3"]
+margin_top = 5.0
+margin_right = 237.0
+margin_bottom = 19.0
+text = "Amount of food needed to reproduce"
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/HBoxContainer3"]
+margin_left = 241.0
+margin_right = 315.0
+margin_bottom = 24.0
+max_value = 1000.0
+value = 3.0
+rounded = true
+
+[node name="CellLabel" type="Label" parent="VBoxContainer"]
+margin_top = 102.0
+margin_right = 400.0
+margin_bottom = 116.0
+text = "Cell"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 120.0
+margin_right = 400.0
+margin_bottom = 144.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer4"]
+margin_top = 5.0
+margin_right = 63.0
+margin_bottom = 19.0
+text = "Starvation"
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/HBoxContainer4"]
+margin_left = 67.0
+margin_right = 91.0
+margin_bottom = 24.0
+pressed = true
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer4"]
+margin_left = 95.0
+margin_top = 5.0
+margin_right = 127.0
+margin_bottom = 19.0
+text = "Time"
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/HBoxContainer4"]
+margin_left = 131.0
+margin_right = 205.0
+margin_bottom = 24.0
+max_value = 1000.0
+value = 10.0
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer4"]
+margin_left = 209.0
+margin_top = 5.0
+margin_right = 262.0
+margin_bottom = 19.0
+text = "seconds"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 148.0
+margin_right = 400.0
+margin_bottom = 172.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer5"]
+margin_top = 5.0
+margin_right = 78.0
+margin_bottom = 19.0
+text = "Dead by age"
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/HBoxContainer5"]
+margin_left = 82.0
+margin_right = 106.0
+margin_bottom = 24.0
+pressed = true
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer5"]
+margin_left = 110.0
+margin_top = 5.0
+margin_right = 142.0
+margin_bottom = 19.0
+text = "Time"
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/HBoxContainer5"]
+margin_left = 146.0
+margin_right = 220.0
+margin_bottom = 24.0
+max_value = 1000.0
+value = 60.0
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer5"]
+margin_left = 224.0
+margin_top = 5.0
+margin_right = 277.0
+margin_bottom = 19.0
+text = "seconds"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 176.0
+margin_right = 400.0
+margin_bottom = 200.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer6"]
+margin_top = 5.0
+margin_right = 93.0
+margin_bottom = 19.0
+text = "Speed of cells "
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/HBoxContainer6"]
+margin_left = 97.0
+margin_right = 171.0
+margin_bottom = 24.0
+max_value = 1000.0
+value = 100.0
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 204.0
+margin_right = 400.0
+margin_bottom = 228.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer7"]
+margin_top = 5.0
+margin_right = 78.0
+margin_bottom = 19.0
+text = "Vision range"
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/HBoxContainer7"]
+margin_left = 82.0
+margin_right = 156.0
+margin_bottom = 24.0
+max_value = 1000.0
+value = 160.0
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 232.0
+margin_right = 400.0
+margin_bottom = 256.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer9"]
+margin_top = 5.0
+margin_right = 141.0
+margin_bottom = 19.0
+text = "Amount of initial cells"
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/HBoxContainer9"]
+margin_left = 145.0
+margin_right = 219.0
+margin_bottom = 24.0
+max_value = 1000.0
+value = 2.0
+rounded = true
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 260.0
+margin_right = 400.0
+margin_bottom = 284.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer8"]
+margin_top = 5.0
+margin_right = 136.0
+margin_bottom = 19.0
+text = "Asexual reproduction"
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/HBoxContainer8"]
+margin_left = 140.0
+margin_right = 164.0
+margin_bottom = 24.0
+
+[node name="HBoxContainer10" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 288.0
+margin_right = 400.0
+margin_bottom = 312.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer10"]
+margin_top = 5.0
+margin_right = 211.0
+margin_bottom = 19.0
+text = "Move away when there is no goal"
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/HBoxContainer10"]
+margin_left = 215.0
+margin_right = 239.0
+margin_bottom = 24.0
+
+[node name="ToolButton" type="ToolButton" parent="VBoxContainer"]
+margin_top = 316.0
+margin_right = 400.0
+margin_bottom = 338.0
+text = "Start"
+flat = false
+[connection signal="pressed" from="VBoxContainer/ToolButton" to="." method="_on_ToolButton_pressed"]
