@@ -132,7 +132,7 @@ func _physics_process(delta: float) -> void:
 				rng.randomize()
 				goalType=null
 				direction= Vector2(rng.randf_range(0, 500),rng.randf_range(0, 500))
-				print(direction)
+				
 		collision = move_and_collide((direction-position).normalized()*speed*delta);
 		
 		
