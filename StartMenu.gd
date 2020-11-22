@@ -29,4 +29,9 @@ func _on_ToolButton_pressed() -> void:
 	Global.initialCells=$VBoxContainer/HBoxContainer9/SpinBox.get_value()
 	Global.asexualReproduction=$VBoxContainer/HBoxContainer8/CheckBox.pressed
 	Global.stay=not ($VBoxContainer/HBoxContainer10/CheckBox.pressed)
+	Global.screenHeight=get_viewport().size.y
+	Global.screenWidth=get_viewport().size.x
+	Global.longestLife=0
+	Global.newestGen=1
+	Global.oldestGenAlive=1
 	get_tree().change_scene("res://MainNode.tscn")

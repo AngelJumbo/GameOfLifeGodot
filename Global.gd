@@ -11,8 +11,12 @@ var cellSpeed:int
 var initialCells:int
 var asexualReproduction:bool
 var stay:bool
+var screenHeight:float
+var screenWidth:float
+var newestGen:int
+var oldestGenAlive:int
 
-
+var longestLife: float
 # Declare member variables here. Examples:
 # var a: int = 2
 # var b: String = "text"

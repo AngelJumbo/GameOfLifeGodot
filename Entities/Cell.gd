@@ -7,6 +7,7 @@ onready var area2D:=$Area2D
 var deadByAge:bool
 var starve:bool
 
+var gen:int
 
 var contactBreed:bool
 var foodToBreed:int
@@ -21,9 +22,17 @@ var direction:Vector2
 var ageTimer
 var starveTimer
 
+var screenWidth
+var screenHeight
+
+var aliveTime
 
 var rng = RandomNumberGenerator.new()
 func _init():
+	
+	screenHeight=Global.screenHeight
+	screenWidth=Global.screenWidth
+	
 	speed=Global.cellSpeed
 	contactBreed=not (Global.asexualReproduction)
 	foodToBreed=Global.foodToReproduce
@@ -42,14 +51,16 @@ func _init():
 		
 	# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	aliveTime=0
 	rng.randomize()
-	if(not Global.stay): direction=Vector2(rng.randf_range(0, 500),rng.randf_range(0, 500))
+	if(not Global.stay): direction=Vector2(rng.randf_range(0, screenWidth),rng.randf_range(0, screenHeight))
 	get_parent().countAlive+=1
 	#set_physics_process(false)
 	
 	pass # Replace with function body.
 
 func _physics_process(delta: float) -> void:
+	aliveTime+=delta
 	if (goal==null):
 		var bodies = area2D.get_overlapping_bodies()
 		rng.randomize()
@@ -107,7 +118,7 @@ func _physics_process(delta: float) -> void:
 					goalType=null
 				
 				rng.randomize()
-				direction= Vector2(rng.randf_range(0, 500),rng.randf_range(0, 500))
+				direction= Vector2(rng.randf_range(0, screenWidth),rng.randf_range(0, screenHeight))
 				
 				
 			else:
@@ -131,14 +142,14 @@ func _physics_process(delta: float) -> void:
 			if (self.position.distance_to(direction)<5 or direction==Vector2(0,0) or goalType!=null):
 				rng.randomize()
 				goalType=null
-				direction= Vector2(rng.randf_range(0, 500),rng.randf_range(0, 500))
+				direction= Vector2(rng.randf_range(0, screenWidth),rng.randf_range(0,screenHeight))
 				
 		collision = move_and_collide((direction-position).normalized()*speed*delta);
 		if  collision:
 			if(not Global.stay):
 				rng.randomize()
 				goalType=null
-				direction= Vector2(rng.randf_range(0, 500),rng.randf_range(0, 500))
+				direction= Vector2(rng.randf_range(0, screenWidth),rng.randf_range(0, screenHeight))
 				collision = move_and_collide((direction-position).normalized()*speed*delta);
 
 
@@ -159,12 +170,15 @@ func _on_Area2D_body_entered(body: Node) -> void:
 			onWay=true
 		"""	
 func _timeout():
-	
-	get_parent().countAlive-=1
-	self.queue_free()
-	get_parent().countDeads+=1
+	die()
 
 func _timeoutStarve():
+	die()
+	
+func die():
+	if Global.longestLife<aliveTime:
+		Global.longestLife=aliveTime
+	#if Global.oldestGenAlive<gen:
 	#print("Dead by starve")
 	get_parent().countAlive-=1
 	self.queue_free()
@@ -174,5 +188,8 @@ func reproduce():
 	countFood-=foodToBreed
 	var scene =load("res://Entities/Cell.tscn")
 	var cell=scene.instance()
+	cell.gen=gen+1
+	if(Global.newestGen<gen+1): Global.newestGen=gen+1
 	cell.set_global_position(Vector2(self.global_position.x,self.global_position.y +10))
 	get_node("../").add_child(cell)
+

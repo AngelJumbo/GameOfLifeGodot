@@ -154,7 +154,6 @@ text = "Dead by age"
 margin_left = 82.0
 margin_right = 106.0
 margin_bottom = 24.0
-pressed = true
 
 [node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer5"]
 margin_left = 110.0
@@ -239,13 +238,13 @@ margin_bottom = 284.0
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer8"]
 margin_top = 5.0
-margin_right = 136.0
+margin_right = 98.0
 margin_bottom = 19.0
-text = "Asexual reproduction"
+text = "Self duplication"
 
 [node name="CheckBox" type="CheckBox" parent="VBoxContainer/HBoxContainer8"]
-margin_left = 140.0
-margin_right = 164.0
+margin_left = 102.0
+margin_right = 126.0
 margin_bottom = 24.0
 
 [node name="HBoxContainer10" type="HBoxContainer" parent="VBoxContainer"]

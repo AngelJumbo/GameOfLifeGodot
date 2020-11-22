@@ -6,6 +6,8 @@ var maxFood:int
 var countAlive=0
 var countDeads=0
 var time=0
+var play=true
+
 
 func _ready():
 	maxFood=Global.foodPerCycle
@@ -13,7 +15,8 @@ func _ready():
 	for i in range(0,Global.initialCells):
 		var scene =load("res://Entities/Cell.tscn")
 		var cell=scene.instance()
-		cell.set_global_position(Vector2(rng.randf_range(0, 500),rng.randf_range(0, 500)))
+		cell.gen=1
+		cell.set_global_position(Vector2(rng.randf_range(0, Global.screenWidth),rng.randf_range(0, Global.screenHeight)))
 		add_child(cell)
 	#var my_random_number = rng.randf_range(-10.0, 10.0)
 """
@@ -38,9 +41,11 @@ func _input(event: InputEvent):
 func _process(delta: float) -> void:
 	timer=timer+delta
 	time+=delta
-	$"../AliveLabel".text="Alive: "+String(countAlive)
-	$"../DeadsLabel".text="Deads: "+String(countDeads)
-	$"../TimeLabel".text="Time: "+String(time)
+	$"../VBox/AliveLabel".text="Alive: "+String(countAlive)
+	$"../VBox/DeadsLabel".text="Deads: "+String(countDeads)
+	$"../VBox/TimeLabel".text="Time: "+String(time)
+	$"../VBox/NewestGenLabel".text="Newest gen: "+String(Global.newestGen)
+	$"../VBox/LongestLifeLabel".text="Longest life: "+String(Global.longestLife)
 	#print(fmod(timer, 5))
 	if(timer>Global.timePerCycle):
 		timer=0
@@ -51,4 +56,7 @@ func _process(delta: float) -> void:
 			food.set_global_position(posi)
 			add_child(food)
 	
+
 # Replace with function body.
+
+

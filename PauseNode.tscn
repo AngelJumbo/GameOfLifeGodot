@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends CanvasLayer
+
+
+# Declare member variables here. Examples:
+# var a: int = 2
+# var b: String = \"text\"
+var play=true
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta: float) -> void:
+#	pass
+
+
+func _on_PauseButton_pressed() -> void:
+	if (play):
+		$\"PauseButton\".text=\"Play\"
+		play=false
+		
+	else:
+		$\"PauseButton\".text=\"Pause\"
+		play=true
+	get_tree().paused=!get_tree().paused
+
+	 # Replace with function body.
+"
+
+[node name="CanvasLayer" type="CanvasLayer"]
+pause_mode = 2
+script = SubResource( 1 )
+
+[node name="PauseButton" type="ToolButton" parent="."]
+margin_left = 2.9763
+margin_top = 473.315
+margin_right = 52.9763
+margin_bottom = 495.315
+text = "Pause"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="PauseButton" to="." method="_on_PauseButton_pressed"]
